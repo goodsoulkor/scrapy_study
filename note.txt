@@ -1,0 +1,22 @@
+# scrapy 프로젝트 생성(상위 경로에서 실행해야 한다.)
+scrapy startproject 프로젝트명
+
+# 스파이더 생성(프로젝트 폴더에 들어가서 해야한다.)
+scrapy genspider 스파이더명 url
+
+# 실행 방법
+1. runspider(spider 파일이 있는 위치에서 실행) - 단위 테스트
+scrapy runspider 스파이더.py
+
+2. crawl(scrapy.cfg가 있는 폴더에서 실행) - 완성이 된 후
+scrapy crawl 스파이더Name
+scrapy crawl 스파이더Name --nolog --> 로그 없이 실행
+
+# settings.py
+ROBOTSTXT_OBEY = True --> 로봇 위반이 있을 때 크롤링을 하지 않는다.
+DOWNLOAD_DELAY = 1 ~ 2 로 변경(요청 주기 1초 ~ 2초)
+
+# 파일로 저장하기(jl, json, jsonlines, xml, csv, marshal, pickle)
+scrapy crawl spiderName -o 파일명.확장자 -t 파일타입
+scrapy crawl spiderName -o result.jl -t jsonlines
+scrapy crawl spiderName -o result.csv -t csv
